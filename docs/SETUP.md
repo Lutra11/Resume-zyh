@@ -5,9 +5,11 @@
 ## 两种展示入口
 
 - **仓库首页**：打开 <https://github.com/Lutra11/Resume-zyh>，GitHub 会自动渲染根目录 `README.md`，默认展示英文。
-- **GitHub 账户主页**：GitHub 只会自动展示公开同名仓库 `Lutra11/Lutra11` 的根目录 `README.md`。该仓库已经存在，可以把本仓库的英文 `README.md` 复制过去。当前交付只推送 `Resume-zyh`，没有改动已有账户主页仓库。
+- **GitHub 账户主页**：已将本仓库的默认英文 `README.md` 同步到公开同名仓库 `Lutra11/Lutra11`，GitHub 会在 <https://github.com/Lutra11> 自动展示该文件。
 
-所有展示图片都指向 `Resume-zyh/main/assets/` 的完整 raw 地址。复制 README 到同名仓库后，图片与中英文入口仍能正常使用。保留本仓库及其 `main` 分支；如果改名或迁移，需同步替换这些地址。
+这次操作是一次内容同步，没有配置 README 自动同步。`Resume-zyh` 继续维护中英文简历和图片资产；以后修改英文内容，需要再次将 `README.md` 复制并提交到 `Lutra11/Lutra11`，账户主页的文字才会更新。
+
+所有展示图片都指向 `Resume-zyh/main/assets/` 的完整 raw 地址。同步后的账户主页图片与中英文入口仍能正常使用；贡献图片会跟随源仓库中的贡献日历工作流自动更新，无需再次复制 README。保留本仓库及其 `main` 分支；如果改名或迁移，需同步替换这些地址。
 
 参考：[GitHub Profile README 官方说明](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)。
 
