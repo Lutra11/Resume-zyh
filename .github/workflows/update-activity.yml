@@ -1,0 +1,41 @@
+name: Update GitHub activity
+
+on:
+  schedule:
+    - cron: '23 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-github-activity
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Official v4 tag commits verified with git ls-remote on 2026-09-09.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Test calendar validation and rendering
+        run: node --test tests/activity.test.mjs
+      - name: Generate public contribution assets
+        run: node scripts/update-activity.mjs
+      - name: Commit changed activity assets
+        shell: bash
+        run: |
+          git add -- assets/activity.svg assets/activity-dark.svg assets/activity.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: update public GitHub contribution calendar' -- assets/activity.svg assets/activity-dark.svg assets/activity.json
+          git push
