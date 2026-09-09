@@ -4,8 +4,8 @@
 
 ## 两种展示入口
 
-- **仓库首页**：打开 <https://github.com/Lutra11/Resume-zyh>，GitHub 会自动渲染根目录 `README.md`。
-- **GitHub 账户主页**：GitHub 只会自动展示公开同名仓库 `Lutra11/Lutra11` 的根目录 `README.md`。该仓库已经存在，可以把本仓库的中文 README 复制过去。当前交付只推送 `Resume-zyh`，没有改动已有账户主页仓库。
+- **仓库首页**：打开 <https://github.com/Lutra11/Resume-zyh>，GitHub 会自动渲染根目录 `README.md`，默认展示英文。
+- **GitHub 账户主页**：GitHub 只会自动展示公开同名仓库 `Lutra11/Lutra11` 的根目录 `README.md`。该仓库已经存在，可以把本仓库的英文 `README.md` 复制过去。当前交付只推送 `Resume-zyh`，没有改动已有账户主页仓库。
 
 所有展示图片都指向 `Resume-zyh/main/assets/` 的完整 raw 地址。复制 README 到同名仓库后，图片与中英文入口仍能正常使用。保留本仓库及其 `main` 分支；如果改名或迁移，需同步替换这些地址。
 
@@ -15,8 +15,9 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `README.md` | 中文展示页 |
-| `README.en.md` | 英文展示页 |
+| `README.md` | 默认英文展示页 |
+| `README.zh-CN.md` | 中文展示页 |
+| `README.en.md` | 兼容旧英文入口，链接至 `README.md` |
 | `assets/avatar.png` | 本人 GitHub 头像 |
 | `assets/typing.svg` | 本地保存的打字动画，内嵌字体 |
 | `assets/stack.svg` / `stack-dark.svg` | 技术图标的明暗版本 |
@@ -28,7 +29,7 @@
 
 ## 修改个人资料
 
-直接编辑两份 README 中对应段落。当前邮箱已由本人确认：`yaohuizhong137@gmail.com`。经历中的“至今”沿用个人网站在 2026-09-09 的公开资料；以后变更工作或教育状态时，应同步修改中英文版本。
+直接编辑英文 `README.md` 和中文 `README.zh-CN.md` 中对应段落；`README.en.md` 仅保留旧入口链接，无需重复维护个人资料。当前邮箱已由本人确认：`yaohuizhong137@gmail.com`。经历中的“至今”沿用个人网站在 2026-09-09 的公开资料；以后变更工作或教育状态时，应同步修改中英文版本。
 
 项目卡片使用真实仓库链接与文字描述。没有依赖第三方 Star 数、排名或统计卡片，也没有将 Fork 项目写成原创项目。研究条目只描述研究内容，没有推断发表、录用或获奖状态。
 
@@ -69,7 +70,7 @@ node --test tests/activity.test.mjs
 ```powershell
 Set-Location C:\resume
 git status
-git add README.md README.en.md assets docs scripts tests .github .gitignore .gitattributes
+git add README.md README.zh-CN.md README.en.md assets docs scripts tests .github .gitignore .gitattributes
 git commit -m "Update personal profile"
 git push origin main
 ```
